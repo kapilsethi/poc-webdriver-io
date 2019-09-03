@@ -1,4 +1,4 @@
-var MyAutomationDriver = require('../automation-driver/myAutomationDriver')
+var MyAutomationDriver = require('../automationDriver/myAutomationDriver')
 
 class BasePage {
     constructor() {
