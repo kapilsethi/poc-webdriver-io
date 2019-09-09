@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js ",
-    "generatereport": "allure generate --clean && allure open"
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "generatereport": "allure generate --clean && allure open",
+    "rtag": "./node_modules/.bin/wdio wdio.conf.js && allure generate --clean && allure open"
   },
   "keywords": [],
   "author": "",
