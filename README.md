@@ -14,6 +14,10 @@
 
 - Run '````npm test````' command to run all the tests
 - Run '````npm run generatereport````' command to generate html report of the test execution results
+- Run '````npm run rtag````' command to run the tests and generate html report
+
+**Test Execution Report:**
+ - Test execution report can be found in './allure-results' and './allure-report'
 
 **Features:**
 ----
