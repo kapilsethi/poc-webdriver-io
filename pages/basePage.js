@@ -13,7 +13,6 @@ class BasePage {
     
     open(pageUrl) {
         this.myDriver.openPage(pageUrl);
-        browser.maximizeWindow();
     };
 
     getPageTitle() {
