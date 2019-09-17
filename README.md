@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kapilsethi/poc-webdriver-io.png)](https://travis-ci.org/kapilsethi/poc-webdriver-io)
+
 # **What's in this repository**
 
 **How to use this repository:**
