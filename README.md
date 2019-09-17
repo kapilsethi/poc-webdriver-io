@@ -47,7 +47,7 @@
 **Care only about chrome browser?**
 ----
 
-- update
+- Update
     - path as '/' (e.g. `path: '/'`)
     - services as 'chromedriver' (e.g. `services: ['chromedriver']`)
 
