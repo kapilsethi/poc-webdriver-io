@@ -12,6 +12,9 @@
 
 - Run `npm install` command
 
+**Using linting utility**
+- Run `npm run lint` command to run eslint
+
 **Running Tests:**
 
 - Run `npm test` command to run all the tests
@@ -38,6 +41,12 @@
 
 - _Reporting framework:_
     - Allure
+
+- _CI:_
+    - Travis
+
+- _Linting utility:_
+    - [pre-commit](https://www.npmjs.com/package/pre-commit) npm package to run linting utility before commit
 
 **Example website:**
 ----

@@ -9,6 +9,9 @@
     "generatereport": "allure generate --clean && allure open",
     "rtag": "./node_modules/.bin/wdio wdio.conf.js && allure generate --clean && allure open"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +27,7 @@
     "chai": "^4.2.0",
     "chromedriver": "^76.0.1",
     "eslint": "^6.4.0",
+    "pre-commit": "^1.2.2",
     "wdio-chromedriver-service": "^5.0.2"
   }
 }
