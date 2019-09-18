@@ -1,4 +1,4 @@
-var howMuchCoulldIBorrow = require('../pages/howMuchCoulldIBorrow');
+var howMuchCoulldIBorrow = require('../pages/howMuchCouldIBorrow');
 var chai = require('chai')
 var expect = chai.expect;
 
