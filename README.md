@@ -46,6 +46,9 @@
     - Travis
 
 - _Linting utility:_
+    - ESLint (extends recommened rules. Details can be found [here](https://eslint.org/docs/rules/))
+
+- _Pre-Commit hook:_
     - [pre-commit](https://www.npmjs.com/package/pre-commit) npm package to run linting utility before commit
 
 **Example website:**
