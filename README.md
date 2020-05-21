@@ -6,7 +6,7 @@
 ----
 
 **Prerequisite:**
-- Need to have `node.js` installed on the machine (version "^v10.15.x")
+- Need to have `node.js` installed on the machine (version "^v12.6.x")
 
 **Setup:**
 
@@ -18,8 +18,7 @@
 **Running Tests:**
 
 - Run `npm test` command to run all the tests
-- Run `npm run generatereport` command to generate html report of the test execution results
-- Run `npm run rtag` command to run the tests and generate html report
+- Run `npm run generate:report` command to generate html report of the test execution results
 
 **Test Execution Report:**
  - Test execution report can be found in './allure-results' and './allure-report'

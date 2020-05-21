@@ -62,7 +62,7 @@ describe('Borrowing Power Calculator Test -->', () => {
         });
     
         it('should see the how much amount I could borrow', () => {
-            expect(page.getHowMuchCanIBorrowAmountResult()).to.equal("$473,000");
+            expect(page.getHowMuchCanIBorrowAmountResult()).to.equal("$488,000");
         });
     
         it('should not see How much could I borrow button', () => {
