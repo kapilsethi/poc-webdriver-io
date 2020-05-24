@@ -1,4 +1,5 @@
-class MyAutomationDriver {
+
+class Helper {
     openPage(pageUrl) {
         browser.url(pageUrl);
     }
@@ -39,4 +40,6 @@ class MyAutomationDriver {
         return $(identifier).getValue();
     }
 }
-module.exports = MyAutomationDriver;
+
+let helper = new Helper();
+export { helper };
