@@ -45,7 +45,7 @@
     - Travis
 
 - _Linting utility:_
-    - ESLint (extends recommened rules. Details can be found [here](https://eslint.org/docs/rules/))
+    - ESLint (extends typescript recommened rules. Details can be found [here](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin))
 
 - _Pre-Commit hook:_
     - [pre-commit](https://www.npmjs.com/package/pre-commit) npm package to run linting utility before commit

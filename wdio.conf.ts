@@ -20,7 +20,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './tests/**/*.js'
+        './tests/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -134,7 +134,17 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        require: 'ts-node/register',
+        compilers: [
+            'tsconfig-paths/register'
+        ] 
+        // requireModule: [
+        //     'ts-node/register',
+        //     () => {
+        //         require("ts-node").register({files: true});
+        //     }
+        // ]
     },
     //
     // =====
