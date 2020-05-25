@@ -1,4 +1,3 @@
-
 class Helper {
     openPage(pageUrl) {
         browser.url(pageUrl);
@@ -41,5 +40,5 @@ class Helper {
     }
 }
 
-let helper = new Helper();
+const helper = new Helper();
 export { helper };

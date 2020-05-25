@@ -101,5 +101,5 @@ class HowMuchCouldIBorrow {
     }
 }
 
-let howMuchCouldIBorrow = new HowMuchCouldIBorrow();
+const howMuchCouldIBorrow = new HowMuchCouldIBorrow();
 export { howMuchCouldIBorrow };
