@@ -1,42 +1,43 @@
 class Helper {
-    openPage(pageUrl) {
-        browser.url(pageUrl);
+    async openPage(pageUrl) {
+        await browser.url(pageUrl);
     }
 
-    getPageTitle() {
-        return browser.getTitle();
+    async getPageTitle() {
+        return await browser.getTitle();
     }
 
-    click(identifier) {
-        $(identifier).click();
+    async click(identifier) {
+        await $(identifier).click();
     }
 
-    enterText(identifier, textToEnter) {
-        $(identifier).setValue(textToEnter);
+    async enterText(identifier, textToEnter) {
+        await $(identifier).setValue(textToEnter);
     }
 
-    selectOption(identifier, optionToSelect) {
-        $(identifier).selectByVisibleText(optionToSelect);
+    async selectOption(identifier, optionToSelect) {
+        await $(identifier).selectByVisibleText(optionToSelect);
     }
 
-    getText(identifier) {
-        return $(identifier).getText();
+    async getText(identifier) {
+        return await $(identifier).getText();
     }
 
-    waitForDisplayed(identifier) {
-        $(identifier).waitForDisplayed();
+    async waitForDisplayed(identifier) {
+        await $(identifier).waitForDisplayed();
     }
 
-    isDisplayed(identifier) {
-        return $(identifier).isDisplayed();
+    async isDisplayed(identifier) {
+        return await $(identifier).isDisplayed();
     }
 
-    scrollIntoView(identifier) {
-        $(identifier).scrollIntoView();
+    async scrollIntoView(identifier) {
+        await this.waitForDisplayed(identifier);
+        await $(identifier).scrollIntoView();
     }
 
-    getValue(identifier) {
-        return $(identifier).getValue();
+    async getValue(identifier) {
+        return await $(identifier).getValue();
     }
 }
 
