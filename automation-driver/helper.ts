@@ -8,18 +8,22 @@ class Helper {
     }
 
     async click(identifier) {
+        await this.waitForDisplayed(identifier);
         await $(identifier).click();
     }
 
     async enterText(identifier, textToEnter) {
+        await this.waitForDisplayed(identifier);
         await $(identifier).setValue(textToEnter);
     }
 
     async selectOption(identifier, optionToSelect) {
+        await this.waitForDisplayed(identifier);
         await $(identifier).selectByVisibleText(optionToSelect);
     }
 
     async getText(identifier) {
+        await this.waitForDisplayed(identifier);
         return await $(identifier).getText();
     }
 
@@ -37,6 +41,7 @@ class Helper {
     }
 
     async getValue(identifier) {
+        await this.waitForDisplayed(identifier);
         return await $(identifier).getValue();
     }
 }
