@@ -18,86 +18,86 @@ class HowMuchCouldIBorrow {
         startOver: ".borrow__result .icon_restart"
     }
 
-    selectApplicationTypeAsSingle() {
-        helper.click(this.identifiers.singleApplicationType);
+    async selectApplicationTypeAsSingle() {
+        await helper.click(this.identifiers.singleApplicationType);
     }
 
-    selectNumberOfDependents(numberOfDependantsToSelect) {
-        helper.selectOption(this.identifiers.numberOfDependants, numberOfDependantsToSelect);
+    async selectNumberOfDependents(numberOfDependantsToSelect) {
+        await helper.selectOption(this.identifiers.numberOfDependants, numberOfDependantsToSelect);
     }
 
-    selectHomeToLiveIn() {
-        helper.click(this.identifiers.homeToLiveIn);
+    async selectHomeToLiveIn() {
+        await helper.click(this.identifiers.homeToLiveIn);
     }
 
-    enterIncomeBeforeTax(incomeToEnter) {
-        helper.enterText(this.identifiers.incomeBeforeTax, incomeToEnter);
+    async enterIncomeBeforeTax(incomeToEnter) {
+        await helper.enterText(this.identifiers.incomeBeforeTax, incomeToEnter);
     }
 
-    enterOtherIncome(otherIncomeToEnter) {
-        helper.enterText(this.identifiers.otherIncome, otherIncomeToEnter);
+    async enterOtherIncome(otherIncomeToEnter) {
+        await  helper.enterText(this.identifiers.otherIncome, otherIncomeToEnter);
     }
 
-    enterLivingExpenses(livingExpensesToEnter) {
-        helper.enterText(this.identifiers.livingExpenses, livingExpensesToEnter);
+    async enterLivingExpenses(livingExpensesToEnter) {
+        await helper.enterText(this.identifiers.livingExpenses, livingExpensesToEnter);
     }
 
-    enterCurrentHomeLoanRepayments (currentHomeLoanRepaymentsToEnter) {
-        helper.enterText(this.identifiers.currentHomeLoanRepayments, currentHomeLoanRepaymentsToEnter)
+    async enterCurrentHomeLoanRepayments (currentHomeLoanRepaymentsToEnter) {
+        await helper.enterText(this.identifiers.currentHomeLoanRepayments, currentHomeLoanRepaymentsToEnter)
     }
 
-    enterOtherLoanRepayments(otherLoanRepaymentsToEnter) {
-        helper.enterText(this.identifiers.otherLoanRepayments, otherLoanRepaymentsToEnter)
+    async enterOtherLoanRepayments(otherLoanRepaymentsToEnter) {
+        await helper.enterText(this.identifiers.otherLoanRepayments, otherLoanRepaymentsToEnter)
     }
 
-    enterOtherCommitments(otherCommitmentsToEnter) {
-        helper.enterText(this.identifiers.otherCommitments, otherCommitmentsToEnter);
+    async enterOtherCommitments(otherCommitmentsToEnter) {
+        await helper.enterText(this.identifiers.otherCommitments, otherCommitmentsToEnter);
     }
 
-    enterTotalCreditCardLimits(totalCreditCardLimitsToEnter) {
-        helper.enterText(this.identifiers.totalCreditCardLimits, totalCreditCardLimitsToEnter)
+    async enterTotalCreditCardLimits(totalCreditCardLimitsToEnter) {
+        await helper.enterText(this.identifiers.totalCreditCardLimits, totalCreditCardLimitsToEnter)
     }
 
-    clickHowMuchCanIBorrowButton() {
-        helper.scrollIntoView(this.identifiers.howMuchCouldIBorrowButton);
-        helper.click(this.identifiers.howMuchCouldIBorrowButton);
+    async clickHowMuchCanIBorrowButton() {
+        await helper.scrollIntoView(this.identifiers.howMuchCouldIBorrowButton);
+        await helper.click(this.identifiers.howMuchCouldIBorrowButton);
     }
 
-    getHowMuchCanIBorrowTextResult() {
-        helper.waitForDisplayed(this.identifiers.howMuchCouldIBorrowTextResult);
-        return helper.getText(this.identifiers.howMuchCouldIBorrowTextResult);
+    async getHowMuchCanIBorrowTextResult() {
+        await helper.waitForDisplayed(this.identifiers.howMuchCouldIBorrowTextResult);
+        return await helper.getText(this.identifiers.howMuchCouldIBorrowTextResult);
     }
 
-    getHowMuchCanIBorrowAmountResult() {
-        return helper.getText( this.identifiers.howMuchCouldIBorrowAmountResult);
+    async getHowMuchCanIBorrowAmountResult() {
+        return await helper.getText( this.identifiers.howMuchCouldIBorrowAmountResult);
     }
 
-    clickStartOver() {
-        helper.click(this.identifiers.startOver);
+    async clickStartOver() {
+        await helper.click(this.identifiers.startOver);
     }
 
-    isHowMuchCouldIBorrowDisplayed() {
-        return helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
+    async isHowMuchCouldIBorrowDisplayed() {
+        return await helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
     }
 
-    getYourIncomeBeforeTax() {
-        return helper.getValue(this.identifiers.incomeBeforeTax);
+    async getYourIncomeBeforeTax() {
+        return await helper.getValue(this.identifiers.incomeBeforeTax);
     }
 
-    getOtherIncome() {
-        return helper.getValue(this.identifiers.otherIncome);
+    async getOtherIncome() {
+        return await helper.getValue(this.identifiers.otherIncome);
     }
 
-    getLivingExpenses() {
-        return helper.getValue(this.identifiers.livingExpenses);
+    async getLivingExpenses() {
+        return await helper.getValue(this.identifiers.livingExpenses);
     }
 
-    getOtherLoanRepayments() {
-        return helper.getValue(this.identifiers.otherLoanRepayments);
+    async getOtherLoanRepayments() {
+        return await helper.getValue(this.identifiers.otherLoanRepayments);
     }
 
-    getTotalCreditCardLimits() {
-        return helper.getValue(this.identifiers.totalCreditCardLimits);
+    async getTotalCreditCardLimits() {
+        return await helper.getValue(this.identifiers.totalCreditCardLimits);
     }
 }
 
