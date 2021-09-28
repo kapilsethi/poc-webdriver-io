@@ -1,4 +1,5 @@
 import { helper } from "automation-driver/helper";
+import { expect } from "chai";
 
 class HowMuchCouldIBorrow {
     private readonly identifiers = {
@@ -18,8 +19,17 @@ class HowMuchCouldIBorrow {
         startOver: ".borrow__result .icon_restart"
     }
 
+    async openPage() {
+        await helper.openPage("/personal/home-loans/calculators-tools/much-borrow/")
+    }
+
     async selectApplicationTypeAsSingle() {
         await helper.click(this.identifiers.singleApplicationType);
+    }
+
+    async verifyPageTitle() {
+        const title = await helper.getPageTitle();
+        expect(title).to.equal("Home loan borrowing power calculator | ANZ");
     }
 
     async selectNumberOfDependents(numberOfDependantsToSelect) {
@@ -35,7 +45,7 @@ class HowMuchCouldIBorrow {
     }
 
     async enterOtherIncome(otherIncomeToEnter) {
-        await  helper.enterText(this.identifiers.otherIncome, otherIncomeToEnter);
+        await helper.enterText(this.identifiers.otherIncome, otherIncomeToEnter);
     }
 
     async enterLivingExpenses(livingExpensesToEnter) {
@@ -63,41 +73,54 @@ class HowMuchCouldIBorrow {
         await helper.click(this.identifiers.howMuchCouldIBorrowButton);
     }
 
-    async getHowMuchCanIBorrowTextResult() {
+    async verifyHowMuchCanIBorrowTextResult(expectedText) {
         await helper.waitForDisplayed(this.identifiers.howMuchCouldIBorrowTextResult);
-        return await helper.getText(this.identifiers.howMuchCouldIBorrowTextResult);
+        const actualText = await helper.getText(this.identifiers.howMuchCouldIBorrowTextResult);
+        expect(actualText).to.include(expectedText);
     }
 
-    async getHowMuchCanIBorrowAmountResult() {
-        return await helper.getText( this.identifiers.howMuchCouldIBorrowAmountResult);
+    async verifyHowMuchCanIBorrowAmountResult(expectedAmount) {
+        const actualAmount = await helper.getText( this.identifiers.howMuchCouldIBorrowAmountResult);
+        expect(actualAmount).to.equal(expectedAmount);
     }
 
     async clickStartOver() {
         await helper.click(this.identifiers.startOver);
     }
 
-    async isHowMuchCouldIBorrowDisplayed() {
-        return await helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
+    async verifyHowMuchCouldIBorrowIsNotDisplayed() {
+        const isDisplayed = await helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
+        expect(isDisplayed).to.false;
     }
 
-    async getYourIncomeBeforeTax() {
-        return await helper.getValue(this.identifiers.incomeBeforeTax);
+    async verifyHowMuchCouldIBorrowIsDisplayed() {
+        const isDisplayed = await helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
+        expect(isDisplayed).to.true;
     }
 
-    async getOtherIncome() {
-        return await helper.getValue(this.identifiers.otherIncome);
+    async verifyYourIncomeBeforeTax(expectedYourIncome) {
+        const actualYourIncome = await helper.getValue(this.identifiers.incomeBeforeTax);
+        expect(actualYourIncome).to.equal(expectedYourIncome);
     }
 
-    async getLivingExpenses() {
-        return await helper.getValue(this.identifiers.livingExpenses);
+    async verifyOtherIncome(expectedOtherIncome) {
+        const actualOtherIncome = await helper.getValue(this.identifiers.otherIncome);
+        expect(actualOtherIncome).to.equal(expectedOtherIncome);
     }
 
-    async getOtherLoanRepayments() {
-        return await helper.getValue(this.identifiers.otherLoanRepayments);
+    async verifyLivingExpenses(expectedLivingExpenses) {
+        const actualLivingExpenses = await helper.getValue(this.identifiers.livingExpenses);
+        expect(actualLivingExpenses).to.equal(expectedLivingExpenses);
     }
 
-    async getTotalCreditCardLimits() {
-        return await helper.getValue(this.identifiers.totalCreditCardLimits);
+    async verifyOtherLoanRepayments(expectedOtherLoanRepayments) {
+        const actualOtherLoanRepayments = await helper.getValue(this.identifiers.otherLoanRepayments);
+        expect(actualOtherLoanRepayments).to.equal(expectedOtherLoanRepayments);
+    }
+
+    async verifyTotalCreditCardLimits(expectedTotalCreditCardLimits) {
+        const actualTotalCreditCardLimits = await helper.getValue(this.identifiers.totalCreditCardLimits);
+        expect(actualTotalCreditCardLimits).to.equal(expectedTotalCreditCardLimits);
     }
 }
 
