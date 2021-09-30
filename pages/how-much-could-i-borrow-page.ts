@@ -1,7 +1,7 @@
 import { helper } from "automation-driver/helper";
 import { expect } from "chai";
 
-class HowMuchCouldIBorrow {
+class HowMuchCouldIBorrowPage {
     private readonly identifiers = {
         singleApplicationType: "label[for='application_type_single']",
         numberOfDependants: "select[title='Number of dependants']",
@@ -19,17 +19,18 @@ class HowMuchCouldIBorrow {
         startOver: ".borrow__result .icon_restart"
     }
 
-    async openPage() {
-        await helper.openPage("/personal/home-loans/calculators-tools/much-borrow/")
+    private readonly expectedTexts = {
+        pageTitle: "Home loan borrowing power calculator | ANZ",
+    }
+
+    async openHowMuchCanIBorrowPage() {
+        await helper.openPage("much-borrow/")
+        const title = await helper.getPageTitle();
+        expect(title).to.equal(this.expectedTexts.pageTitle);
     }
 
     async selectApplicationTypeAsSingle() {
         await helper.click(this.identifiers.singleApplicationType);
-    }
-
-    async verifyPageTitle() {
-        const title = await helper.getPageTitle();
-        expect(title).to.equal("Home loan borrowing power calculator | ANZ");
     }
 
     async selectNumberOfDependents(numberOfDependantsToSelect) {
@@ -88,12 +89,12 @@ class HowMuchCouldIBorrow {
         await helper.click(this.identifiers.startOver);
     }
 
-    async verifyHowMuchCouldIBorrowIsNotDisplayed() {
+    async verifyHowMuchCouldIBorrowPageIsNotDisplayed() {
         const isDisplayed = await helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
         expect(isDisplayed).to.false;
     }
 
-    async verifyHowMuchCouldIBorrowIsDisplayed() {
+    async verifyHowMuchCouldIBorrowPageIsDisplayed() {
         const isDisplayed = await helper.isDisplayed(this.identifiers.howMuchCouldIBorrowButton);
         expect(isDisplayed).to.true;
     }
@@ -124,5 +125,5 @@ class HowMuchCouldIBorrow {
     }
 }
 
-const howMuchCouldIBorrow = new HowMuchCouldIBorrow();
-export { howMuchCouldIBorrow };
+const howMuchCouldIBorrowPage = new HowMuchCouldIBorrowPage();
+export { howMuchCouldIBorrowPage };

@@ -91,7 +91,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://www.anz.com.au',
+    baseUrl: 'https://www.anz.com.au/personal/home-loans/calculators-tools/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
