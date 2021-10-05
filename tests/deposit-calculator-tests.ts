@@ -15,5 +15,9 @@ describe('Home deposit, costs and stamp duty calculator tests', async () => {
         await depositCalculatorPage.verifyConveyancing("+ $1,000");
         await depositCalculatorPage.verifyBankCharges("+ $600");
         await depositCalculatorPage.verifyLmi("n/a");
+        await depositCalculatorPage.verifyYourEstimatedDeposit("$65,687");
+        await depositCalculatorPage.verifyHowMuchYouHaveNow("$100,000");
+        await depositCalculatorPage.verifyFirstHomeOwnerGrant("+ $-");
+        await depositCalculatorPage.verifyTotalUpfrontEstimatedCosts("– $34,313");
     });
 });

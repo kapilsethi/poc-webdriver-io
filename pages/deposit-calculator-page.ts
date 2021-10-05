@@ -12,6 +12,7 @@ class DepositCalculatorPage {
         contribution: "#contribution",
         upforntCostValue: ".upfrontcosts__costValue",
         upforntCostTable: "#OC_TABLE",
+        estimatedDepositTable: "#YP_TABLE"
     }
 
     private readonly expectedTexts = {
@@ -24,7 +25,10 @@ class DepositCalculatorPage {
         otherGovernmentCosts: "Other government costs",
         conveyancing: "Conveyancing",
         bankCharges: "Bank charges",
-        lmi: "LMI"
+        lmi: "LMI",
+        howMuchYouHaveNow: "How much you have now",
+        firstHomeOwnerGrant: "First Home Owner Grant",
+        totalEstimatedUpfrontCosts: "Total estimated upfront costs"
     }
 
     async openDepositCalculatorPage() {
@@ -95,6 +99,29 @@ class DepositCalculatorPage {
         const actualLmi = await webTableHelper.getCellDateFromParticularRow(
             this.identifiers.upforntCostTable, this.rowTexts.lmi);
         expect(actualLmi).to.equal(expectedLmi);
+    }
+
+    async verifyYourEstimatedDeposit(expectedDeposit) {
+        const elements = await helper.getElements(this.identifiers.upforntCostValue);
+        await helper.verifyTextChangesTo(elements[1], expectedDeposit, 15);
+    }
+
+    async verifyHowMuchYouHaveNow(expectedAmount) {
+        const actualAmount = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.estimatedDepositTable, this.rowTexts.howMuchYouHaveNow);
+        expect(actualAmount).to.equal(expectedAmount);
+    }
+
+    async verifyFirstHomeOwnerGrant(expectedGrantAmount) {
+        const actualGrantAmount = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.estimatedDepositTable, this.rowTexts.firstHomeOwnerGrant);
+        expect(actualGrantAmount).to.equal(expectedGrantAmount);
+    }
+
+    async verifyTotalUpfrontEstimatedCosts(expectedCosts) {
+        const actualCosts = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.estimatedDepositTable, this.rowTexts.totalEstimatedUpfrontCosts);
+        expect(actualCosts).to.equal(expectedCosts);
     }
 }
 
