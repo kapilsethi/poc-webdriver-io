@@ -54,11 +54,11 @@ class HowMuchCouldIBorrowPage {
     }
 
     async enterCurrentHomeLoanRepayments (currentHomeLoanRepaymentsToEnter) {
-        await helper.enterText(this.identifiers.currentHomeLoanRepayments, currentHomeLoanRepaymentsToEnter)
+        await helper.enterText(this.identifiers.currentHomeLoanRepayments, currentHomeLoanRepaymentsToEnter);
     }
 
     async enterOtherLoanRepayments(otherLoanRepaymentsToEnter) {
-        await helper.enterText(this.identifiers.otherLoanRepayments, otherLoanRepaymentsToEnter)
+        await helper.enterText(this.identifiers.otherLoanRepayments, otherLoanRepaymentsToEnter);
     }
 
     async enterOtherCommitments(otherCommitmentsToEnter) {
@@ -66,7 +66,7 @@ class HowMuchCouldIBorrowPage {
     }
 
     async enterTotalCreditCardLimits(totalCreditCardLimitsToEnter) {
-        await helper.enterText(this.identifiers.totalCreditCardLimits, totalCreditCardLimitsToEnter)
+        await helper.enterText(this.identifiers.totalCreditCardLimits, totalCreditCardLimitsToEnter);
     }
 
     async clickHowMuchCanIBorrowButton() {

@@ -1,4 +1,5 @@
 import { helper } from "automation-driver/helper"
+import { webTableHelper } from "automation-driver/web-table-helper";
 import { expect } from "chai";
 
 class DepositCalculatorPage {
@@ -9,46 +10,91 @@ class DepositCalculatorPage {
         qualifyForFirstHomeOwnerSchemeOptionNo: "label[for='fhos_no']",
         propertyValue: "#propertyValue",
         contribution: "#contribution",
+        upforntCostValue: ".upfrontcosts__costValue",
+        upforntCostTable: "#OC_TABLE",
     }
 
     private readonly expectedTexts = {
         pageTitle: "Home deposit, costs and stamp duty calculator | ANZ",
     }
 
+    private readonly rowTexts = {
+        stampDutyRowText: "Transfer of Land / Stamp Duty",
+        concessions: "Concessions",
+        otherGovernmentCosts: "Other government costs",
+        conveyancing: "Conveyancing",
+        bankCharges: "Bank charges",
+        lmi: "LMI"
+    }
+
     async openDepositCalculatorPage() {
         await helper.openPage("deposit-calculator/");
-        const pageTitle = await helper.getPageTitle();
         const title = await helper.getPageTitle();
         expect(title).to.equal(this.expectedTexts.pageTitle);
     }
 
     async selectInvestTypeAsResidential() {
-        await helper.waitForDisplayed(this.identifiers.residentialInvestment);
         await helper.click(this.identifiers.residentialInvestment);
         const isFirstHomeOwnerSchemeOptionDisplayed = await helper.isDisplayed(this.identifiers.qualifyForFirstHomeOwnerSchemeOptionNo);
-        expect(isFirstHomeOwnerSchemeOptionDisplayed, 
+        expect(isFirstHomeOwnerSchemeOptionDisplayed,
             "first home owner scheme options were not expected to be displayed").to.false;
     }
 
     async selectPropertyState(stateToSelect) {
-        await helper.waitForDisplayed(this.identifiers.propertyState);
         await helper.selectOption(this.identifiers.propertyState, stateToSelect);
     }
 
     async selectPropertyType(propertyTypeToSelect) {
-        await helper.waitForDisplayed(this.identifiers.propertyType);
         await helper.selectOption(this.identifiers.propertyType, propertyTypeToSelect);
     }
 
     async enterEstimatedPropertyValue(estimatedPropertyValue) {
-        await helper.waitForDisplayed(this.identifiers.propertyValue);
         await helper.enterText(this.identifiers.propertyValue, estimatedPropertyValue);
     }
 
     async enterContribution(contribution) {
-        await helper.waitForDisplayed(this.identifiers.contribution);
         await helper.enterText(this.identifiers.contribution, contribution);
-        await browser.pause(10000);
+    }
+
+    async verifyEstimatedUpfrontCosts(expectedCost) {
+        const elements = await helper.getElements(this.identifiers.upforntCostValue);
+        await helper.verifyTextChangesTo(elements[0], expectedCost, 15);
+    }
+
+    async verifyStampDutyUpfrontCost(expectedCosts) {
+        const actualCosts = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.upforntCostTable, this.rowTexts.stampDutyRowText);
+        expect(actualCosts).to.equal(expectedCosts);
+    }
+
+    async verifyConcessions(expectedConcessions) {
+        const actualConcessions = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.upforntCostTable, this.rowTexts.concessions);
+        expect(actualConcessions).to.equal(expectedConcessions);
+    }
+
+    async verifyOtherGovernmentCosts(expectedCosts) {
+        const actualCost = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.upforntCostTable, this.rowTexts.otherGovernmentCosts);
+        expect(actualCost).to.equal(expectedCosts);
+    }
+
+    async verifyConveyancing(expectedConveyancing) {
+        const actualConveyancing = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.upforntCostTable, this.rowTexts.conveyancing);
+        expect(actualConveyancing).to.equal(expectedConveyancing);
+    }
+
+    async verifyBankCharges(expectedBankCharges) {
+        const actualBankCharges = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.upforntCostTable, this.rowTexts.bankCharges);
+        expect(actualBankCharges).to.equal(expectedBankCharges);
+    }
+
+    async verifyLmi(expectedLmi) {
+        const actualLmi = await webTableHelper.getCellDateFromParticularRow(
+            this.identifiers.upforntCostTable, this.rowTexts.lmi);
+        expect(actualLmi).to.equal(expectedLmi);
     }
 }
 
