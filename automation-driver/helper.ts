@@ -60,7 +60,7 @@ class Helper {
             await browser.waitUntil(
                 async() => {
                     const actualText = await this.getText(identifier);
-                    logger.info(`######### current text is: ${actualText} and expecting it to be ${expectedText} #########`);
+                    logger.info(`######## current text is: ${actualText} and expecting it to be ${expectedText} ########`);
                     return (actualText.trim() === expectedText);
                 }, {
                     timeout: timeout * 1000,
