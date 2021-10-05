@@ -1,3 +1,8 @@
+import { expect } from "chai";
+import { getLogger } from "log4js";
+const logger = getLogger();
+logger.level = "debug";
+
 class Helper {
     async openPage(pageUrl) {
         await browser.url(pageUrl);
@@ -43,6 +48,27 @@ class Helper {
     async getValue(identifier) {
         await this.waitForDisplayed(identifier);
         return await $(identifier).getValue();
+    }
+
+    async getElements(identifier) {
+        await this.waitForDisplayed(identifier);
+        return await $$(identifier);
+    }
+
+    async verifyTextChangesTo(identifier, expectedText, timeout) {
+        try {
+            await browser.waitUntil(
+                async() => {
+                    const actualText = await this.getText(identifier);
+                    logger.info(`######## current text is: ${actualText} and expecting it to be ${expectedText} ########`);
+                    return (actualText.trim() === expectedText);
+                }, {
+                    timeout: timeout * 1000,
+                    timeoutMsg: "not matched"});
+        }
+        catch(error) {
+            expect.fail(`element ${identifier} text did not change to ${expectedText}`);
+        }
     }
 }
 

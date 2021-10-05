@@ -29,6 +29,7 @@
     "chai": "^4.2.0",
     "chromedriver": "^93.0.0",
     "eslint": "^7.1.0",
+    "log4js": "^6.3.0",
     "pre-commit": "^1.2.2",
     "ts-node": "^8.10.1",
     "tsconfig-paths": "^3.9.0",
