@@ -1,5 +1,5 @@
 import { howMuchCouldIBorrowPage } from "pages/how-much-could-i-borrow-page";
-import * as testData from "../test-data/test-data.json";
+import * as testData from "../test-data/borrowing-power-calculator-test-data.json";
 
 describe('Borrowing Power Calculator Test -->', async () => {
     it('User should be able to calculate how much he/she can borrow based on the inputs', async () => {

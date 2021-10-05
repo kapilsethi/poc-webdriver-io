@@ -1,23 +1,24 @@
 import { depositCalculatorPage } from "pages/deposit-calculator-page";
+import * as testData from "../test-data/deposit-calculator-test-data.json"
 
 describe('Home deposit, costs and stamp duty calculator tests', async () => {
     it('User should be able to calculate upfornt cost based on the inputs', async () => {
         await depositCalculatorPage.openDepositCalculatorPage();
         await depositCalculatorPage.selectInvestTypeAsResidential();
-        await depositCalculatorPage.selectPropertyState("Victoria (Metro)");
-        await depositCalculatorPage.selectPropertyType("Established home");
-        await depositCalculatorPage.enterEstimatedPropertyValue("600000");
-        await depositCalculatorPage.enterContribution("100000");
-        await depositCalculatorPage.verifyEstimatedUpfrontCosts("$34,313");
-        await depositCalculatorPage.verifyStampDutyUpfrontCost("$31,070");
-        await depositCalculatorPage.verifyConcessions("– $-");
-        await depositCalculatorPage.verifyOtherGovernmentCosts("+ $1,643");
-        await depositCalculatorPage.verifyConveyancing("+ $1,000");
-        await depositCalculatorPage.verifyBankCharges("+ $600");
-        await depositCalculatorPage.verifyLmi("n/a");
-        await depositCalculatorPage.verifyYourEstimatedDeposit("$65,687");
-        await depositCalculatorPage.verifyHowMuchYouHaveNow("$100,000");
-        await depositCalculatorPage.verifyFirstHomeOwnerGrant("+ $-");
-        await depositCalculatorPage.verifyTotalUpfrontEstimatedCosts("– $34,313");
+        await depositCalculatorPage.selectPropertyState(testData.propertyState);
+        await depositCalculatorPage.selectPropertyType(testData.propertyType);
+        await depositCalculatorPage.enterEstimatedPropertyValue(testData.estimatedPropertyValue);
+        await depositCalculatorPage.enterContribution(testData.contribution);
+        await depositCalculatorPage.verifyEstimatedUpfrontCosts(testData.estimatedUpfrontCosts);
+        await depositCalculatorPage.verifyStampDutyUpfrontCosts(testData.stampDutyUpfrontCosts);
+        await depositCalculatorPage.verifyConcessions(testData.concessions);
+        await depositCalculatorPage.verifyOtherGovernmentCosts(testData.otherGovernmentCosts);
+        await depositCalculatorPage.verifyConveyancing(testData.conveyancing);
+        await depositCalculatorPage.verifyBankCharges(testData.bankCharges);
+        await depositCalculatorPage.verifyLmi(testData.lmi);
+        await depositCalculatorPage.verifyYourEstimatedDeposit(testData.yourEstimatedDeposit);
+        await depositCalculatorPage.verifyHowMuchYouHaveNow(testData.howMuchYouHaveNow);
+        await depositCalculatorPage.verifyFirstHomeOwnerGrant(testData.firstHomeOwnerGrant);
+        await depositCalculatorPage.verifyTotalUpfrontEstimatedCosts(testData.estimatedUpfrontCostsinDeposit);
     });
 });

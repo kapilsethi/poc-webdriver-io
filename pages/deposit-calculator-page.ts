@@ -65,7 +65,7 @@ class DepositCalculatorPage {
         await helper.verifyTextChangesTo(elements[0], expectedCost, 15);
     }
 
-    async verifyStampDutyUpfrontCost(expectedCosts) {
+    async verifyStampDutyUpfrontCosts(expectedCosts) {
         const actualCosts = await webTableHelper.getCellDateFromParticularRow(
             this.identifiers.upforntCostTable, this.rowTexts.stampDutyRowText);
         expect(actualCosts).to.equal(expectedCosts);
