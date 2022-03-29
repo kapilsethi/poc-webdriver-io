@@ -16,7 +16,7 @@ describe('Borrowing Power Calculator Test -->', async () => {
         await howMuchCouldIBorrowPage.enterTotalCreditCardLimits(testData.totalCreditCardLimits);
         await howMuchCouldIBorrowPage.clickHowMuchCanIBorrowButton();
         await howMuchCouldIBorrowPage.verifyHowMuchCanIBorrowTextResult("We estimate you could borrow:");
-        await howMuchCouldIBorrowPage.verifyHowMuchCanIBorrowAmountResult("$508,000");
+        await howMuchCouldIBorrowPage.verifyHowMuchCanIBorrowAmountResult("$542,000");
         await howMuchCouldIBorrowPage.verifyHowMuchCouldIBorrowPageIsNotDisplayed();
     });
 
